@@ -10,7 +10,7 @@ public class ConsultaCobertura {
     public static void main(String[] args) {
 
         Motoristas motoristas = new Motoristas();
-        Motorista motorista = motoristas.porNome("João"); // José não tem caminhão, por isso dá NulPointerException
+//        Motorista motorista = motoristas.porNome("João"); // José não tem caminhão, por isso dá NulPointerException
 
 //        String cobertura = motorista.getCaminhao().getSeguro().getCobertura();
 
