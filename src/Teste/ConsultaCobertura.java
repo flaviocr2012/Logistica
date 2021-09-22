@@ -5,6 +5,8 @@ import model.Motorista;
 import model.Seguro;
 import repository.Motoristas;
 
+import java.util.Optional;
+
 public class ConsultaCobertura {
 
     public static void main(String[] args) {
@@ -26,7 +28,24 @@ public class ConsultaCobertura {
 //            }
 //        }
 
+        // Utilizando flatMap pra agrupar dois Optionals
+
+//        Optional<Motorista> motoristaOpcional = motoristas.porNome("João");
+//        Optional<Caminhao> caminhaoOpcional = motoristaOpcional.flatMap(Motorista::getCaminhao);
+
 //        System.out.println("A cobertura é: " + cobertura);
+
+        Optional<String> coberturaOpcional = motoristas.porNome("João")
+                .flatMap(Motorista::getCaminhao)
+                .flatMap(Caminhao::getSeguro)
+                .map(Seguro::getCobertura);
+
+        coberturaOpcional.ifPresent(System.out::println);
+
+
+
+
+
 
 
     }
