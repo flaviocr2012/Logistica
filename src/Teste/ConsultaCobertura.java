@@ -33,14 +33,17 @@ public class ConsultaCobertura {
 //        Optional<Motorista> motoristaOpcional = motoristas.porNome("João");
 //        Optional<Caminhao> caminhaoOpcional = motoristaOpcional.flatMap(Motorista::getCaminhao);
 
-//        System.out.println("A cobertura é: " + cobertura);
 
-        Optional<String> coberturaOpcional = motoristas.porNome("João")
+        String cobertura = motoristas.porNome("João")
                 .flatMap(Motorista::getCaminhao)
                 .flatMap(Caminhao::getSeguro)
-                .map(Seguro::getCobertura);
+                .map(Seguro::getCobertura)
+                .orElse("Sem cobertura");
 
-        coberturaOpcional.ifPresent(System.out::println);
+        System.out.println("A cobertura é: " + cobertura);
+
+
+//        coberturaOpcional.ifPresent(System.out::println);
 
 
 
